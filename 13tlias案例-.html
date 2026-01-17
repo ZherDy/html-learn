@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tlias智能学习辅助系统</title>
+    <style>
+        /* 顶层导航栏样式 */
+        .navbar {
+            background-color: #f0f0f0; /* 灰色背景 */
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        
+        /* 标题样式 */
+        .navbar h1 {
+            margin: 0;
+            font-weight: bold;
+            font-size: 24px;
+            color: white;
+            font-family: "楷体";
+        }
+        
+        /* 退出登录链接样式 */
+        .navbar .logout {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+        }
+        
+        .navbar .logout:hover {
+            color: #666;
+            text-decoration: underline;
+        }
+        #container{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .item{
+            width: 200px;
+            height: 200px;
+            background-color: #84F315;
+        }
+
+        /* 搜索表单区域样式 */
+        .search-form {
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        
+        /* 表单项样式 */
+        .form-group {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        /* 输入框和下拉框样式 */
+        input[type="text"], select {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            width: 260px;
+        }
+        
+        /* 按钮样式 */
+        button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        /* 查询按钮样式 */
+        .btn-query {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        .btn-query:hover {
+            background-color: #45a049;
+        }
+        
+        /* 清空按钮样式 */
+        .btn-reset {
+            background-color: #f44336;
+            color: white;
+        }
+        
+        .btn-reset:hover {
+            background-color: #da190b;
+        }
+        /* 表格展示区样式 */
+        .table-container {
+            background-color: #fff; 
+            border: 1px solid #ddd; 
+            border-radius: 5px; 
+            overflow: hidden; 
+        }
+        
+        /* 表格样式 */
+        table {
+            width: 100%; 
+            border-collapse: collapse; 
+        }
+        
+        /* 表头样式 */
+        th {
+            background-color: #f8f8f8;
+            padding: 12px;
+            text-align: center;
+            border-bottom: 2px solid #ddd;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        /* 表格内容样式 */
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            vertical-align: middle;
+        }
+        
+        /* 行悬停效果 */ 
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        /* 头像样式 */
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        /* 操作按钮样式 */
+        .btn-edit, .btn-delete {
+            padding: 5px 10px; 
+            font-size: 12px; 
+            margin-right: 5px; 
+        }
+        
+        .btn-edit {
+            background-color: #2196F3; 
+            color: white; 
+        }
+        
+        .btn-edit:hover {
+            background-color: #0b7dda; 
+        } 
+        
+        .btn-delete {
+            background-color: #f44336; 
+            color: white; 
+        }
+        
+        .btn-delete:hover {
+            background-color: #da190b;
+        }
+         /* 页脚版权区域样式 */
+        .footer {
+            background-color: #666; /* 灰色背景 */
+            color: white; /* 白色字体 */
+            text-align: center; /* 居中对齐 */
+            padding: 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            width: 100%;
+        }
+        
+        /* 页脚第一行样式 */
+        .footer .company-name {
+            margin-bottom: 5px;
+        }
+        
+        /* 页脚第二行样式 */
+        .footer .copyright {
+            font-size: 12px;
+        }
+        #container{
+            width: 80%;
+            margin: 0 auto;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+<div id = "container">
+        <!-- 顶层导航栏 -->
+    <div class="navbar">
+        <h1>Tlias智能学习辅助系统</h1>
+        <a href="#" class="logout">退出登录</a>
+    </div>
+    
+    <!-- 搜索表单区域 -->
+    <form class="search-form">
+        <!-- 姓名输入框 -->
+        <div class="form-group">
+            <label for="name">姓名：</label>
+            <input type="text" id="name" name="name" placeholder="请输入姓名">
+        </div>
+        
+        <!-- 性别下拉选择 -->
+        <div class="form-group">
+            <label for="gender">性别：</label>
+            <select id="gender" name="gender">
+                <option value="">请选择</option>
+                <option value="1">男</option>
+                <option value="2">女</option>
+            </select>
+        </div>
+        
+        <!-- 职位下拉选择 -->
+        <div class="form-group">
+            <label for="position">职位：</label>
+            <select id="position" name="position">
+                <option value="">请选择</option>
+                <option value="1">班主任</option>
+                <option value="2">讲师</option>
+                <option value="3">学工主管</option>
+                <option value="4">教研主管</option>
+                <option value="5">咨询师</option>
+            </select>
+        </div>
+        
+        <!-- 操作按钮 -->
+        <button type="submit" class="btn-query">查询</button>
+        <button type="reset" class="btn-reset">清空</button>
+    </form>
+    <!-- tr用来表示表格中的行，td用来表示表格中的单元格。th用来表示表格中的表头单元格。 -->
+     
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>头像</th>
+                    <th>职位</th>
+                    <th>入职日期</th>
+                    <th>最后操作时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 测试数据1：令狐冲 -->
+                <tr>
+                    <td>令狐冲</td>
+                    <td>男</td>
+                    <td><img src="https://via.placeholder.com/40" alt="令狐冲" class="avatar"></td>
+                    <td>讲师</td>
+                    <td>2023-01-15</td>
+                    <td>2024-05-20 14:30:22</td>
+                    <td>
+                        <button class="btn-edit">编辑</button>
+                        <button class="btn-delete">删除</button>
+                    </td>
+                </tr>
+                
+                <!-- 测试数据2：任盈盈 -->
+                <tr>
+                    <td>任盈盈</td>
+                    <td>女</td>
+                    <td><img src="https://via.placeholder.com/40" alt="任盈盈" class="avatar"></td>
+                    <td>班主任</td>
+                    <td>2023-02-20</td>
+                    <td>2024-05-21 09:15:45</td>
+                    <td>
+                        <button class="btn-edit">编辑</button>
+                        <button class="btn-delete">删除</button>
+                    </td>
+                </tr>
+                
+                <!-- 测试数据3：林平之 -->
+                <tr>
+                    <td>林平之</td>
+                    <td>男</td>
+                    <td><img src="https://via.placeholder.com/40" alt="林平之" class="avatar"></td>
+                    <td>学工主管</td>
+                    <td>2023-03-10</td>
+                    <td>2024-05-22 16:45:12</td>
+                    <td>
+                        <button class="btn-edit">编辑</button>
+                        <button class="btn-delete">删除</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- 4. 页脚版权区域 -->
+    <div class="footer">
+        <div class="company-name">江苏传智播客教育科技股份有限公司</div>
+        <div class="copyright">版权所有 Copyright 2006-2024 All Rights Reserved</div>
+    </div>
+</div>
+</body>
+</html>

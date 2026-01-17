@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tlias智能学习辅助系统</title>
+    <style>
+        /* 顶层导航栏样式 */
+        .navbar {
+            background-color: #f0f0f0; /* 灰色背景 */
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* 标题样式 */
+        .navbar h1 {
+            margin: 0;
+            font-weight: bold;
+            font-size: 24px;
+            color: white;
+            font-family: "楷体";
+        }
+        
+        /* 退出登录链接样式 */
+        .navbar .logout {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+        }
+        
+        .navbar .logout:hover {
+            color: #666;
+            text-decoration: underline;
+        }
+        #container{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .item{
+            width: 200px;
+            height: 200px;
+            background-color: #84F315;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶层导航栏 -->
+    <div class="navbar">
+        <h1>Tlias智能学习辅助系统</h1>
+        <a href="#" class="logout">退出登录</a>
+    </div>
+   <div id = "container">
+        <div class = "item"></div>
+        <div class = "item"></div>
+        
+        <div class = "item"></div>
+    </div>
+    <!-- 其他部分将在后续实现 -->
+</body>
+</html>

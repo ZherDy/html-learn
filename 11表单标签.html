@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 登录表单 -->
+     <!-- action:表单数据提交的url地址
+    method:表单数据提交的方式
+    get:默认，表单数据出现在url地址中，例如/?username=admin&password=123456
+    特点：
+    1.表单数据出现在url地址中，不安全
+    2.对表单数据长度有限制，一般为2048个字符
+    post:表单数据提交的方式为post
+    特点：
+    1.表单数据不出现在url地址中，安全
+    2.对表单数据长度没有限制 -->
+    <form action="/save" method="post">
+        <label for="username">用户名：</label>
+        <input type="text" id="username" name="username" required><br>
+
+        <label for="password">密码：</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <input type="submit" value="登录">
+    </form>
+</body>
+</html>
